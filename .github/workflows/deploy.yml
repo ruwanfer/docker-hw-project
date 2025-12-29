@@ -26,3 +26,6 @@ jobs:
         tags: |
           ruwanfer/express-app:latest
           ruwanfer/express-app:${{ github.sha }}
+
+        cache-from: type=gha
+        cache-to: type=gha,mode=max
