@@ -15,6 +15,6 @@ jobs:
     
     - uses: docker/build-push-action@v5
       with:
-        context: ./express-app/example-frontend  # ⬅️ මෙය අත්‍යවශ්‍යයි!
+        context: .
         push: true
         tags: ruwanfer/express-app:latest  # ⬅️ ඔඟේ username දාන්න
