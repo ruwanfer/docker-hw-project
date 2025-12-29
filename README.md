@@ -1,41 +1,31 @@
-# example-frontend
+# Deployment Pipeline Project
 
-This project is created to help learn docker configurations for frontend projects. The README starting from "Prerequisites" is written without Docker in mind so student has to figure out how to construct their configuration based on the README. However, there are some additional helpers added in the README and in the exercise description.
+## Live Application
+**Live URL:** https://docker-hw-project.onrender.com
 
-> Notice, that all the information is not needed in all the exercises. Don't just copy-paste.
+## CI/CD Pipeline
+This repository uses GitHub Actions to automatically deploy to Render on every push to the main branch.
 
-# Prerequisites
+### Features:
+- Automatic deployment on push to main branch
+- GitHub Actions workflow
+- Render cloud hosting
+- Zero-downtime deployments
 
-Install [node](https://nodejs.org/en/download/). 
+### Workflow:
+1. Push code to `main` branch
+2. GitHub Actions triggers deployment to Render
+3. Render automatically builds and deploys
+4. Application updates within 2-3 minutes
 
-Example node install instructions for LTS node 16.x:
-```
-curl -sL https://deb.nodesource.com/setup_16.x | bash
-sudo apt install -y nodejs
-```
+### Setup Requirements:
+- Render API Key in GitHub Secrets as `RENDER_API_KEY`
+- Render Service ID in GitHub Secrets as `RENDER_SERVICE_ID`
 
-Check your install with `node -v && npm -v`
+## Repository Structure
+- `.github/workflows/deploy-to-render.yml` - Render deployment pipeline
+- `.github/workflows/deploy.yml` - Docker Hub build pipeline
+- `Dockerfile` - Container configuration
 
-Install all packages with `npm install`
-
-# Starting in production mode
-
-## Exercise 1.12 -> to run the project
-
-First, you need to build the static files with `npm run build`
-
-This will generate them into `build` folder.
-
-An example for serving static files:
-
-Use npm package called serve to serve the project in port 5000:
-- install: `npm install -g serve`
-- serve: `serve -s -l 5000 build`
-
-Test that the project is running by going to <http://localhost:5000>
-
-## Exercise 1.14 -> to connect to backend
-
-By default, the expected path to backend is /api. This is where the application will send requests. 
-To manually configure API path, build with `REACT_APP_BACKEND_URL` environment value set, for example `REACT_APP_BACKEND_URL=http://example.com npm run build`
-# CI/CD Test
+## Manual Deployment
+Deploy manually: https://dashboard.render.com/web/srv-d52118ali9vc73e0tui0
